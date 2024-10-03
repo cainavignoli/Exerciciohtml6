@@ -1,0 +1,74 @@
+index.html
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Lista</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h2>Gerador de Lista</h2>
+    <p>Digite a quantidade de itens:</p>
+    <input type="number" id="quantidade" placeholder="Ex: 5">
+    <button onclick="gerarLista()">Gerar Lista</button>
+    <p id="mensagem"></p>
+    <ul id="lista"></ul>
+    <script src="script.js"></script>
+</body>
+</html>
+---------------------------------------------------
+script.js
+
+function gerarLista() {
+    var quantidade = document.getElementById('quantidade').value;
+    var mensagem = document.getElementById('mensagem');
+    var lista = document.getElementById('lista');
+    
+   
+    lista.innerHTML = "";
+    mensagem.textContent = "";
+
+    
+    if (quantidade === "" || quantidade <= 0) {
+        mensagem.textContent = "Por favor, insira um número válido.";
+    } else {
+        for (var i = 1; i <= quantidade; i++) {
+            var item = document.createElement('li');
+            item.textContent = "Caina Gomes " + i;
+            lista.appendChild(item);
+        }
+    }
+}
+
+----------------------------------------------
+styles.css
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+input, button {
+    margin: 5px;
+}
+
+#mensagem {
+    margin-top: 15px;
+    font-weight: bold;
+    color: red;
+}
+
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
